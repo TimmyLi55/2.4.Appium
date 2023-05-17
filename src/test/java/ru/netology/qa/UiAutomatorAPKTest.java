@@ -37,28 +37,22 @@ public class UiAutomatorAPKTest {
 
     @Test
     public void checkEmptySymbol() {
-        String defText = "Привет, UiAutomator!";
         locators.textToBeChanged.isDisplayed();
-        locators.textToBeChanged.click();
-        String textNow = locators.textToBeChanged.getText();
-        Assertions.assertEquals(textNow, defText);
+        String firstText = locators.textToBeChanged.getText();
         locators.userInput.isDisplayed();
         locators.userInput.click();
         locators.userInput.sendKeys(" ");
         locators.buttonChange.isDisplayed();
         locators.buttonChange.click();
         locators.textToBeChanged.isDisplayed();
-        String textAfter = locators.textToBeChanged.getText();
-        Assertions.assertEquals(textAfter, defText);
+        String afterText = locators.textToBeChanged.getText();
+        Assertions.assertEquals(afterText, firstText);
     }
     @Test
     public void textInNewActivity() {
         String newText = "Изменение";
-        String defText = "Привет, UiAutomator!";
         locators.textToBeChanged.isDisplayed();
-        locators.textToBeChanged.click();
-        String textNow = locators.textToBeChanged.getText();
-        Assertions.assertEquals(textNow, defText);
+        String firstText = locators.textToBeChanged.getText();
         locators.userInput.isDisplayed();
         locators.userInput.click();
         locators.userInput.sendKeys(newText);
@@ -67,8 +61,8 @@ public class UiAutomatorAPKTest {
         locators.buttonActivity.isDisplayed();
         locators.buttonActivity.click();
         locators.text.isDisplayed();
-        textNow = locators.text.getText();
-        Assertions.assertEquals(textNow, newText);
+        String activityText = locators.text.getText();
+        Assertions.assertEquals(newText, activityText);
 
     }
 
